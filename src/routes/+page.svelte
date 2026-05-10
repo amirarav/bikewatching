@@ -1,2 +1,2 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<h1>Bikewatching</h1>
+<p>An immersive, interactive map visualization of bike traffic in the Boston area during different times of the day!</p>
