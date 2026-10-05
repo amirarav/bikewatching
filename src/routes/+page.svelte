@@ -187,7 +187,12 @@
         {/if}
     </label>
 </header>
-<p>An immersive, interactive map visualization of bike traffic in the Boston area during different times of the day!</p>
+<p>
+    A map of Bluebikes bike-share traffic in the Boston area, based on trips from March 2024. Each circle is a station. Its size reflects the total number of trips starting or ending there, and its color shows whether departures (blue) or arrivals (orange) are more common, with purple meaning roughly balanced. Green lines mark existing bike lanes in Boston and Cambridge.
+</p>
+<p>
+    Drag the slider to show only trips within an hour of the chosen time of day. Click a station to see the estimated area reachable from it by bike in 5, 10, 15 and 20 minutes, and click it again to clear.
+</p>
 
 <div id="map">
     <svg>
@@ -196,7 +201,7 @@
                 {#each isochrone.features as feature}
                     <path
                         d={geoJSONPolygonToPath(feature)}
-                        fill={`#${feature.properties.fillColor}`}
+                        fill={feature.properties.fillColor}
                         fill-opacity="0.2"
                         stroke="#000"
                         stroke-opacity="0.5"
@@ -230,6 +235,13 @@
     <div style="--departure-ratio: 0.5">Balanced</div>
     <div style="--departure-ratio: 0">More arrivals</div>
 </div>
+
+<p>
+    Data Sources:
+    <a href="https://bluebikes.com/system-data">Bluebikes system data</a> (stations and March 2024 trips),
+    <a href="https://data.boston.gov/dataset/existing-bike-network-2022">City of Boston Existing Bike Network 2022</a>,
+    <a href="https://github.com/cambridgegis/cambridgegis_data">Cambridge GIS Bike Facilities</a>.
+</p>
 
 <style>
     @import url("$lib/global.css");
